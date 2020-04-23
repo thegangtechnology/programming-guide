@@ -22,11 +22,12 @@ jobs:
     - name: Build sphinx
       run: |
         sphinx-build -b html source public
+        touch public/.nojekyll
     - name: Deploy GitHub Pages
       if: success()
-      uses: igolopolosov/github-action-release-github-pages@master
+      uses: crazy-max/ghaction-github-pages@v1.4.0
+      with:
+        target_branch: gh-pages
+        build_dir: public
       env:
-        GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GITHUB_PAGES_RELEASE_BRANCH: gh-pages
-        PROJECT_BUILD_FOLDER: public
-        GITHUB_PAGES_CLEANUP_SCRIPT: "cd $PROJECT_BUILD_FOLDER && touch .nojekyll"
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
