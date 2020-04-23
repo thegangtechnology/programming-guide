@@ -26,7 +26,7 @@ jobs:
       if: success()
       uses: igolopolosov/github-action-release-github-pages@master
       env:
-        GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+        GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GITHUB_PAGES_RELEASE_BRANCH: gh-pages
         PROJECT_BUILD_FOLDER: public
         GITHUB_PAGES_CLEANUP_SCRIPT: "cd $PROJECT_BUILD_FOLDER && touch .nojekyll"
