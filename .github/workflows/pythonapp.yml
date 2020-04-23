@@ -26,7 +26,10 @@ jobs:
       run: |
         sphinx-build -b html source public
     - name: Deploy GitHub Pages
+      if: success()
       uses: crazy-max/ghaction-github-pages@v1.4.0
-      with:
-        # Build directory to deploy
-        build_dir: public
+        with:
+          target_branch: gh-pages
+          build_dir: public
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
