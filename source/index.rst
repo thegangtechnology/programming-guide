@@ -1,6 +1,12 @@
 The Gang Programming Guide
 ==========================================================
 
+::
+   
+   This document is incomplete, we recommend you recheck periodically.
+
+
+
 At The Gang, we strive for quality maintainable code.
 As a software house, we handle and maintain many projects.
 The code written by our programmers need to be up to The Gang standard as it will eventually be handed over from person to person.
