@@ -18,4 +18,5 @@ This document will give you a heads up on what kind of code we expect.
    :caption: Contents:
 
    python/index
+   version-control/index
 
