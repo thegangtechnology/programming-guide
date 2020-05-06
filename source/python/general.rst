@@ -15,6 +15,26 @@ Please refer to the two guidelines for anything not explicitly stated below.
    :maxdepth: 2
 
 
+Variable Naming
+~~~~~~~~~~~~~~~
+
+Variable Naming
+***************
+
+Follow `PEP-8`_. Use snake_case for variable and function name. Use camelCase only for class name and ALL_CAP for constants. Ex: Do use :code:`snake_case` instead of :code:`camelCase`.
+
+
+Collection and Iterators
+************************
+Use plural for collections(list, dict, etc) and iterators. Ex: Do use :code:`indices = [1,2,3]` instead of :code:`index = [1,2,3]`
+
+
+Function Naming
+***************
+Name the function it so that user know at first glance what it does without having to read doc. 
+  Ex: Do use :code:`find_largest_number_less_than(lst, threshold)` instead of :code:`find_number(list, threshold)`
+
+
 Linting
 ~~~~~~~
 
@@ -204,14 +224,44 @@ dependency on other objects.
         def from_file(cls, file: FileObject) -> 'MetaData':
             return MetaData(size=size, is_file=os.is_file(file))
 
+Use Context Manager for Opening File
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Variable Naming
-~~~~~~~~~~~~~~~
+Use `with` when opening a file. Avoid using `try` `except` `finally` when open file for read/write. It's much easier to read and most likely you will forgot to do except.
 
-- Use plural for list. Ex: Do use :code:`indices = [1,2,3]` instead of :code:`index = [1,2,3]`.
-- DO NOT use camel case for vairable name. Ex: Do use :code:`snake_case` instead of :code:`camelCase`.
-- Name the function it so that user know at first glance what it does without having to read doc. 
-  Ex: Do use :code:`find_largest_number_less_than(lst, threshold)` instead of :code:`find_number(list, threshold)`
+**Bad**
+
+.. code-block:: python
+
+    try:
+        f = open('hello.txt')
+        print(f.read())
+    finally:
+        f.close()
+
+**Good**
+
+.. code-block:: python
+
+    with open('hello.txt') as f:
+        print(f.read())
+
+If one need to pass the opened file around, we can use `contextlib`_. For example,
+
+.. code-block:: python
+
+    from contextlib import contextmanager
+
+    @contextmanager
+    def get_data_file():
+        with open('data.txt') as f:
+            yield f
+    
+    def use_data():
+        with get_data_file() as f:
+            print(df.read())
+
+For more information on contextlib, see `context manager`_.
 
 .. _Google Python Style Guide: https://google.github.io/styleguide/pyguide.html
 .. _Google Style Doc String: https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html
@@ -220,3 +270,6 @@ Variable Naming
 .. _mypy: https://mypy.readthedocs.io/en/stable/
 .. _notebook extensions: https://github.com/ipython-contrib/jupyter_contrib_nbextensions
 .. _pytest: https://docs.pytest.org/en/latest/
+.. _context manager: https://book.pythontips.com/en/latest/context_managers.html#context-managers
+.. _contextlib: https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager
+

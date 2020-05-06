@@ -17,6 +17,6 @@ This document will give you a heads up on what kind of code we expect.
    :maxdepth: 2
    :caption: Contents:
 
-   python/index
    version-control/index
+   python/index
 
