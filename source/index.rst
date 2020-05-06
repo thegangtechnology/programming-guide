@@ -1,6 +1,8 @@
 The Gang Programming Guide
 ==========================================================
 
+Lastest update |today|.
+
 ::
    
    This document is incomplete, we recommend you recheck periodically.
@@ -19,4 +21,5 @@ This document will give you a heads up on what kind of code we expect.
 
    version-control/index
    python/index
+
 
