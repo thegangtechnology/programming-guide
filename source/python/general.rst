@@ -256,10 +256,10 @@ If one need to pass the opened file around, we can use `contextlib`_. For exampl
     def get_data_file():
         with open('data.txt') as f:
             yield f
-    
+
     def use_data():
         with get_data_file() as f:
-            print(df.read())
+            print(f.read())
 
 For more information on contextlib, see `context manager`_.
 
@@ -272,4 +272,3 @@ For more information on contextlib, see `context manager`_.
 .. _pytest: https://docs.pytest.org/en/latest/
 .. _context manager: https://book.pythontips.com/en/latest/context_managers.html#context-managers
 .. _contextlib: https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager
-
