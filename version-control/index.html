@@ -1,0 +1,271 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Version Control &mdash; Programming Guide  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Python" href="../python/index.html" />
+    <link rel="prev" title="The Gang Programming Guide" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Programming Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Version Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basics">Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#main-branches">Main Branches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#branching-strategy">Branching Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#merging-strategy">Merging Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-review">Code Review</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code-quality/index.html">Code Quality</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Programming Guide</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Version Control</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/version-control/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="version-control">
+<h1>Version Control<a class="headerlink" href="#version-control" title="Permalink to this headline">¶</a></h1>
+<p>Every project at The Gang requires multiple team members to collaborate.  Therefore, we must create a good procedure for working together effortlessly.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h2>
+<p>It is best to understand the underlying working of git. Watch <a class="reference external" href="https://www.youtube.com/watch?v=2sjqTHE0zok">this</a>. Do not think of git as a set of magical command.
+It will come back and bite you later.</p>
+</div>
+<div class="section" id="main-branches">
+<h2>Main Branches<a class="headerlink" href="#main-branches" title="Permalink to this headline">¶</a></h2>
+<p>Every project at The Gang will have the following branches</p>
+<dl class="simple">
+<dt>master</dt><dd><p>Production-ready code. The branch will be used for user acceptance testing.</p>
+</dd>
+</dl>
+<dl class="simple" id="dev">
+<dt>dev</dt><dd><p>The main development branch where everyone will be branching from</p>
+</dd>
+<dt>release/{semver_versioning_number}</dt><dd><p>Production-ready code on branch with <a class="reference external" href="https://semver.org/">semver</a> versioning. Thus, allow easy analysis of production code and revert if needed.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="branching-strategy">
+<h2>Branching Strategy<a class="headerlink" href="#branching-strategy" title="Permalink to this headline">¶</a></h2>
+<p>The developer shall create a new branch each time he/she will develop a story or task. The newly created branch shall be created from the <a class="reference internal" href="#dev"><span class="std std-ref">dev</span></a> branch.</p>
+<p>The branch name shall follow the following rule:</p>
+<p>If the project uses Jira, then</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">jira</span><span class="o">-</span><span class="n">issue</span><span class="o">-</span><span class="nb">id</span><span class="p">}</span><span class="o">/</span><span class="p">{</span><span class="n">short</span><span class="o">-</span><span class="n">description</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>else</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">creator_nickname</span><span class="p">}</span><span class="o">/</span><span class="p">{</span><span class="n">feature</span><span class="o">/</span><span class="n">fix</span><span class="o">/</span><span class="n">test</span><span class="p">}</span><span class="o">/</span><span class="p">{</span><span class="n">short</span><span class="o">-</span><span class="n">description</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TIM</span><span class="o">-</span><span class="mi">162</span><span class="o">/</span><span class="n">create</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="n">profile</span>
+</pre></div>
+</div>
+<p><strong>Branches are intended to be short-lived.</strong> The ability to frequently merge code is critical to avoiding costly merge conflict.</p>
+</div>
+<div class="section" id="merging-strategy">
+<h2>Merging Strategy<a class="headerlink" href="#merging-strategy" title="Permalink to this headline">¶</a></h2>
+<p>The developer shall create a Pull/Merge request to the <a class="reference internal" href="#dev"><span class="std std-ref">dev</span></a>. branch. The branch shall be deleted once the merge request has been approved. The developer must also assign the merge request responsibility to the person who received <a class="reference internal" href="#code-review">Code Review</a> responsibility for that particular project.</p>
+<p>The person who was assigned as a code reviewer for a particular project shall regularly check for merge requests.</p>
+</div>
+<div class="section" id="code-review">
+<h2>Code Review<a class="headerlink" href="#code-review" title="Permalink to this headline">¶</a></h2>
+<p>Every project will consist of at least one code reviewer. His/her task is to review the merge request and make sure that the developer follows the standard set by The Gang.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../python/index.html" class="btn btn-neutral float-right" title="Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="The Gang Programming Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, The Gang Technology
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

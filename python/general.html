@@ -1,0 +1,456 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Python Guideline &mdash; Programming Guide  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Flask" href="flask.html" />
+    <link rel="prev" title="Python" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Programming Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../version-control/index.html">Version Control</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Python</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Python Guideline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#variable-naming">Variable Naming</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Variable Naming</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collection-and-iterators">Collection and Iterators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-naming">Function Naming</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#linting">Linting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#typing-annotation">Typing Annotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#write-test">Write Test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docstring">DocString</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#return-object-instead-of-long-tuple">Return Object Instead of Long Tuple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-named-parameter">Use Named Parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#class-constructor">Class Constructor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-context-manager-for-opening-file">Use Context Manager for Opening File</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flask.html">Flask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_analysis.html">Data Analysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../code-quality/index.html">Code Quality</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Programming Guide</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Python</a> &raquo;</li>
+        
+      <li>Python Guideline</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/python/general.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="python-guideline">
+<h1>Python Guideline<a class="headerlink" href="#python-guideline" title="Permalink to this headline">¶</a></h1>
+<p>We follow loosely
+<a class="reference external" href="https://google.github.io/styleguide/pyguide.html">Google Python Style Guide</a>
+and
+<a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP-8</a>.
+If you are new at The Gang, we recommend that you read the <a class="reference external" href="https://google.github.io/styleguide/pyguide.html">Google Python Style Guide</a> first.
+Please refer to the two guidelines for anything not explicitly stated below.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#variable-naming" id="id2">Variable Naming</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id1" id="id3">Variable Naming</a></p></li>
+<li><p><a class="reference internal" href="#collection-and-iterators" id="id4">Collection and Iterators</a></p></li>
+<li><p><a class="reference internal" href="#function-naming" id="id5">Function Naming</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#linting" id="id6">Linting</a></p></li>
+<li><p><a class="reference internal" href="#typing-annotation" id="id7">Typing Annotation</a></p></li>
+<li><p><a class="reference internal" href="#write-test" id="id8">Write Test</a></p></li>
+<li><p><a class="reference internal" href="#docstring" id="id9">DocString</a></p></li>
+<li><p><a class="reference internal" href="#return-object-instead-of-long-tuple" id="id10">Return Object Instead of Long Tuple</a></p></li>
+<li><p><a class="reference internal" href="#use-named-parameter" id="id11">Use Named Parameter</a></p></li>
+<li><p><a class="reference internal" href="#class-constructor" id="id12">Class Constructor</a></p></li>
+<li><p><a class="reference internal" href="#use-context-manager-for-opening-file" id="id13">Use Context Manager for Opening File</a></p></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="variable-naming">
+<h2><a class="toc-backref" href="#id2">Variable Naming</a><a class="headerlink" href="#variable-naming" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3><a class="toc-backref" href="#id3">Variable Naming</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Follow <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP-8</a>. Use snake_case for variable and function name. Use camelCase only for class name and ALL_CAP for constants. Ex: Do use <code class="code docutils literal notranslate"><span class="pre">snake_case</span></code> instead of <code class="code docutils literal notranslate"><span class="pre">camelCase</span></code>.</p>
+</div>
+<div class="section" id="collection-and-iterators">
+<h3><a class="toc-backref" href="#id4">Collection and Iterators</a><a class="headerlink" href="#collection-and-iterators" title="Permalink to this headline">¶</a></h3>
+<p>Use plural for collections(list, dict, etc) and iterators. Ex: Do use <code class="code docutils literal notranslate"><span class="pre">indices</span> <span class="pre">=</span> <span class="pre">[1,2,3]</span></code> instead of <code class="code docutils literal notranslate"><span class="pre">index</span> <span class="pre">=</span> <span class="pre">[1,2,3]</span></code></p>
+</div>
+<div class="section" id="function-naming">
+<h3><a class="toc-backref" href="#id5">Function Naming</a><a class="headerlink" href="#function-naming" title="Permalink to this headline">¶</a></h3>
+<dl class="simple">
+<dt>Name the function it so that user know at first glance what it does without having to read doc.</dt><dd><p>Ex: Do use <code class="code docutils literal notranslate"><span class="pre">find_largest_number_less_than(lst,</span> <span class="pre">threshold)</span></code> instead of <code class="code docutils literal notranslate"><span class="pre">find_number(list,</span> <span class="pre">threshold)</span></code></p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="linting">
+<h2><a class="toc-backref" href="#id6">Linting</a><a class="headerlink" href="#linting" title="Permalink to this headline">¶</a></h2>
+<p>You must lint your code before committing to the repository. You are going to miss a space or two.
+So, get your editor or linter to do it. For example, in pycharm, the shortcut is <code class="docutils literal notranslate"><span class="pre">Command+Alt+L</span></code> or <code class="docutils literal notranslate"><span class="pre">Ctrl+Alt+L</span></code>.
+For jupyter notebook, install <a class="reference external" href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions">notebook extensions</a> and enable autopep8. Then click the gear icon on your toolbar to format.</p>
+<p><strong>Bad</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="o">+</span> <span class="n">b</span>
+</pre></div>
+</div>
+<p><strong>Good</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="c1"># linting will do this for you</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="typing-annotation">
+<h2><a class="toc-backref" href="#id7">Typing Annotation</a><a class="headerlink" href="#typing-annotation" title="Permalink to this headline">¶</a></h2>
+<p>It is highly recommend that you document the type of arguments using <a class="reference external" href="https://mypy.readthedocs.io/en/stable/">mypy</a>. This will make your autocomplete life much better.
+PyCharm will recognize the typing system and will</p>
+<p>The point here is to help you with auto completion. There is really no need to run mypy type check since the checker is not very good
+with contravariant and such.</p>
+<p><strong>Bad</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_number_to_list</span><span class="p">(</span><span class="n">lst</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="n">number</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Good</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_number_to_list</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">number</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="n">number</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="write-test">
+<h2><a class="toc-backref" href="#id8">Write Test</a><a class="headerlink" href="#write-test" title="Permalink to this headline">¶</a></h2>
+<p>At The Gang, the code base for each project tends to be quite big with interworking pieces. Changing one file may affect other people’s work.
+To make everyone life easier, it is essential to write unit test at least to make sure that it doesn’t crash. The recommended tool is <a class="reference external" href="https://docs.pytest.org/en/latest/">pytest</a>.
+Readup how to use it. Or ask your project advisor how to do it.</p>
+</div>
+<div class="section" id="docstring">
+<h2><a class="toc-backref" href="#id9">DocString</a><a class="headerlink" href="#docstring" title="Permalink to this headline">¶</a></h2>
+<p>Please use <a class="reference external" href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html">Google Style Doc String</a>. See an example below. Much more readable than RST style. To have pycharm do this automatically
+search for <code class="docutils literal notranslate"><span class="pre">google</span></code> in pycharm setting, in the python integrated tool change docstring format from rst to Google.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_number_to_list</span><span class="p">(</span><span class="n">lst</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">number</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;Add number to list</span>
+<span class="sd">        Args:</span>
+<span class="sd">            lst (List[float]): list of numbers to be added.</span>
+<span class="sd">            number (float): number to add.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List[float]. List of added numbers.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="n">number</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">lst</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="return-object-instead-of-long-tuple">
+<h2><a class="toc-backref" href="#id10">Return Object Instead of Long Tuple</a><a class="headerlink" href="#return-object-instead-of-long-tuple" title="Permalink to this headline">¶</a></h2>
+<p>Being able to return multiple objects and use tuple expansion is great but once you return more than 2 objects you will start questioning yourself
+which order you need it tobe. So instead of return a long tuple, return an object instead. We could live with 1 or 2 objects but 3 and more is a No No.</p>
+<p><strong>Bad</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">summarize</span><span class="p">(</span><span class="n">arr</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">arr</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">arr</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Good</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">SummarizeResult</span><span class="p">:</span>
+    <span class="n">mean</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">std</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">size</span><span class="p">:</span> <span class="nb">int</span>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># Optional just in case you still want to do tuple expansion</span>
+        <span class="k">yield</span> <span class="n">mean</span>
+        <span class="k">yield</span> <span class="n">std</span>
+        <span class="k">yield</span> <span class="n">size</span>
+
+<span class="k">def</span> <span class="nf">summarize</span><span class="p">(</span><span class="n">arr</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SummarizeResult</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">SummarizeResult</span><span class="p">(</span>
+        <span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">arr</span><span class="p">),</span>
+        <span class="n">std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">arr</span><span class="p">),</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="use-named-parameter">
+<h2><a class="toc-backref" href="#id11">Use Named Parameter</a><a class="headerlink" href="#use-named-parameter" title="Permalink to this headline">¶</a></h2>
+<p>If you need to call a function with a long list of parameters. DO NOT rely on the ordering, someone may change it.
+Also it’s so hard to figure out which parameter is which.
+Instead, call it with named parameters. For example,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_tea</span><span class="p">(</span><span class="n">tea_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">boba_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">boba_number</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">sugar_amount</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tea</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p><strong>Bad</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">make_tea</span><span class="p">(</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;coffee&#39;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Good</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">make_tea</span><span class="p">(</span><span class="n">tea_type</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span>
+         <span class="n">boba_type</span><span class="o">=</span><span class="s1">&#39;coffee&quot;,</span>
+         <span class="n">boba_number</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+         <span class="n">sugar_amount</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="class-constructor">
+<h2><a class="toc-backref" href="#id12">Class Constructor</a><a class="headerlink" href="#class-constructor" title="Permalink to this headline">¶</a></h2>
+<p>It is recommended that you use <a class="reference external" href="https://docs.python.org/3/library/dataclasses.html">dataclass</a> if possible. If you need to use the old style class with <code class="code docutils literal notranslate"><span class="pre">__init__</span></code> then
+your main constructor must be dumb that means all it does is copy the arguments to <code class="code docutils literal notranslate"><span class="pre">self.xxx</span></code>. Then, complicated
+constructor which requires logic should be in an alternative constructor class method. This allows your code to be testable without much
+dependency on other objects.</p>
+<p><strong>Bad, but Tempting</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MetaData</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="n">FileObject</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">is_file</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Good</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MetaData</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">is_file</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_file</span> <span class="o">=</span> <span class="n">is_file</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_file</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="n">FileObject</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;MetaData&#39;</span><span class="p">:</span>
+        <span class="c1"># the single quote in the return type is for forward referencing</span>
+        <span class="k">return</span> <span class="n">MetaData</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">is_file</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">is_file</span><span class="p">(</span><span class="n">file</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>Better</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">MetaData</span><span class="p">:</span>
+    <span class="n">size</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">is_file</span><span class="p">:</span> <span class="nb">bool</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_file</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="n">FileObject</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;MetaData&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">MetaData</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">is_file</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">is_file</span><span class="p">(</span><span class="n">file</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="use-context-manager-for-opening-file">
+<h2><a class="toc-backref" href="#id13">Use Context Manager for Opening File</a><a class="headerlink" href="#use-context-manager-for-opening-file" title="Permalink to this headline">¶</a></h2>
+<p>Use <cite>with</cite> when opening a file. Avoid using <cite>try</cite> <cite>except</cite> <cite>finally</cite> when open file for read/write. It’s much easier to read and most likely you will forgot to do except.</p>
+<p><strong>Bad</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;hello.txt&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Good</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;hello.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>If one need to pass the opened file around, we can use <a class="reference external" href="https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager">contextlib</a>. For example,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+
+<span class="nd">@contextmanager</span>
+<span class="k">def</span> <span class="nf">get_data_file</span><span class="p">():</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">f</span>
+
+<span class="k">def</span> <span class="nf">use_data</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">get_data_file</span><span class="p">()</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>For more information on contextlib, see <a class="reference external" href="https://book.pythontips.com/en/latest/context_managers.html#context-managers">context manager</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="flask.html" class="btn btn-neutral float-right" title="Flask" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, The Gang Technology
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
