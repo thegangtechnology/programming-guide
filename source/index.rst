@@ -16,10 +16,10 @@ This document will give you a heads up on what kind of code we expect.
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
    version-control/index
    python/index
-
+   code-quality/index
 

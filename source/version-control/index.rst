@@ -31,12 +31,18 @@ Branching Strategy
 The developer shall create a new branch each time he/she will develop a story or task. The newly created branch shall be created from the :ref:`dev<dev>` branch.
 
 The branch name shall follow the following rule:
+
+If the project uses Jira, then
+:: 
+    {jira-issue-id}/{short-description}
+
+else
 :: 
     {creator_nickname}/{feature/fix/test}/{short-description}
 
 For example:
 ::
-    o/feature/create-user-profile
+    TIM-162/create-user-profile
 
 **Branches are intended to be short-lived.** The ability to frequently merge code is critical to avoiding costly merge conflict. 
 

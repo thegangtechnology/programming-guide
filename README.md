@@ -1,3 +1,9 @@
+## Installation
+
+``
+brew install sphinx-doc
+``
+
 ## Run sphinx
 
 ``
